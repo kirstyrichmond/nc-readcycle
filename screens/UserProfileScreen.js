@@ -700,13 +700,24 @@ const modalStyles = StyleSheet.create({
     backgroundColor: "#F194FF",
   },
   buttonClose: {
-    backgroundColor: "#2196F3",
+    backgroundColor: "white",
+    borderWidth: 2,
+    borderColor: "#76c893",
+    shadowColor: "grey",
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+    shadowOpacity: 1,
+    shadowRadius: 4,
+
+    elevation: 10,
   },
   buttonSubmitted: {
     backgroundColor: "#03C04A",
   },
   textStyle: {
-    color: "white",
+    color: "#76c893",
     fontWeight: "bold",
     textAlign: "center",
   },
