@@ -123,7 +123,7 @@ export default function ListBookScreen({ navigation, route }) {
 
   return (
     <SafeAreaView style={styles.container}>
-      <LinearGradient
+      {/* <LinearGradient
         // Background Linear Gradient
         colors={["#f7edf2", "#dee2ff", "white"]}
         start={{
@@ -135,7 +135,7 @@ export default function ListBookScreen({ navigation, route }) {
           y: 1,
         }}
         style={styles.background}
-      />
+      /> */}
       <ScrollView>
         {/* Barcode Button */}
         <TouchableOpacity
@@ -214,7 +214,7 @@ export default function ListBookScreen({ navigation, route }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#d3d3d3",
+    // backgroundColor: "#F8F8F8",
     alignItems: "center",
     justifyContent: "center",
   },
@@ -236,7 +236,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#ffbd03",
+    backgroundColor: "#E0E0E0",
     borderColor: "white",
     borderRadius: 40,
     borderWidth: 2,
@@ -245,7 +245,7 @@ const styles = StyleSheet.create({
   },
   barcodeText: {
     fontFamily: "HelveticaNeue",
-    color: "white",
+    color: "black",
     fontSize: 22,
     paddingTop: 10,
   },
@@ -269,7 +269,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     height: 60,
     width: 60,
-    backgroundColor: "#ffbd03",
+    backgroundColor: "#E0E0E0",
     borderRadius: 40,
     left: 200,
     borderColor: "white",
@@ -329,7 +329,7 @@ const styles = StyleSheet.create({
     margin: 10,
     padding: 0,
     borderRadius: 10,
-    borderColor: "red",
+    // borderColor: "red",
     borderWidth: 1,
   },
 
@@ -352,7 +352,7 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#ffbd03",
+    backgroundColor: "#E0E0E0",
     borderColor: "white",
     borderRadius: 40,
     borderWidth: 2,
@@ -369,7 +369,7 @@ const styles = StyleSheet.create({
   },
   submitButtonText: {
     fontFamily: "HelveticaNeue",
-    color: "white",
+    color: "black",
     fontSize: 18,
   },
   clearButton: {

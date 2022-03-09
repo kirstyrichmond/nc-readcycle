@@ -14,7 +14,7 @@ export default function LogOutScreen({ navigation }) {
 
   return (
     <View style={styles.pageContainer}>
-       <LinearGradient
+       {/* <LinearGradient
         // Background Linear Gradient
         colors={["#f7edf2","#dee2ff",  "white"]}
         start={{
@@ -26,7 +26,7 @@ export default function LogOutScreen({ navigation }) {
           y: 1,
         }}
         style={styles.background}
-      />
+      /> */}
 <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
       <TouchableOpacity onPress={handleLogout} style={styles.button}>
         <Text style={styles.text}>Log Out.</Text>
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
   },
   button: {
     // backgroundColor: "#FFC0CB",
-    backgroundColor: "#ffbd03",
+    backgroundColor: "#DCDCDC",
     borderRadius: 30,
     width: "30%",
     height: 45,
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     borderColor: "white",
     borderWidth: 2,
-    shadowColor: "pink",
+    shadowColor: "#DCDCDC",
     shadowOffset: {
       width: 0,
       height: 5,

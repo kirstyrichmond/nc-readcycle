@@ -15,7 +15,12 @@ import {
   TextInput,
   Pressable,
 } from "react-native";
-import { Ionicons, AntDesign, MaterialIcons, Foundation } from "@expo/vector-icons";
+import {
+  Ionicons,
+  AntDesign,
+  MaterialIcons,
+  Foundation,
+} from "@expo/vector-icons";
 import MapButton from "./MapButton";
 import TreeIcon from "./TreeIconLink";
 import BooksOfferedLink from "./BooksOfferedLink";
@@ -140,7 +145,7 @@ export default function UserProfileScreen({ route, navigation }) {
 
   return (
     <SafeAreaView style={styles.container}>
-      <LinearGradient
+      {/* <LinearGradient
         // Background Linear Gradient
         colors={["#f7edf2", "#dee2ff", "white"]}
         start={{
@@ -152,7 +157,7 @@ export default function UserProfileScreen({ route, navigation }) {
           y: 1,
         }}
         style={styles.background}
-      />
+      /> */}
       <View style={styles.scrollView}>
         <View style={styles.profileShadow}>
           <View style={styles.profileImageContainer}>
@@ -174,18 +179,17 @@ export default function UserProfileScreen({ route, navigation }) {
         <View style={styles.usernameContainer}>
           <Text style={styles.username}>{currentUser.username}</Text>
         </View>
-        <View
-          style={styles.locationDataBox}
-        >
+        <View style={styles.locationDataBox}>
           {/* <Text>🌎 </Text> */}
-          
+
           <Text style={styles.locationDataText}>
             <Ionicons
               name="ios-location-outline"
               size={26}
               color="black"
               style={{ marginTop: 0, marginLeft: 1 }}
-            ></Ionicons> {cityChanged ? newCity : currentUser.city}
+            ></Ionicons>{" "}
+            {cityChanged ? newCity : currentUser.city}
           </Text>
           <View>
             <Modal
@@ -265,7 +269,8 @@ export default function UserProfileScreen({ route, navigation }) {
 
         <View style={styles.treeDataBox}>
           <Text style={styles.treeDataText}>
-            <Foundation name="trees" size={23} color="black" />  {getTreeCount(currentUser)} trees saved
+            <Foundation name="trees" size={23} color="black" />{" "}
+            {getTreeCount(currentUser)} trees saved
           </Text>
         </View>
 
@@ -318,9 +323,7 @@ export default function UserProfileScreen({ route, navigation }) {
           ></FlatList>
 
           <View style={styles.bookCount}>
-            <Text
-              style={styles.bookCountText}
-            >
+            <Text style={styles.bookCountText}>
               {currentUser.books.length} books on offer
             </Text>
           </View>
@@ -357,34 +360,33 @@ const styles = StyleSheet.create({
     fontFamily: "HelveticaNeue",
     color: "#52575D",
   },
-  headerIconBar: {
-    flexDirection: "row",
-    justifyContent: "flex-end",
-    marginTop: 10,
-    marginHorizontal: 16,
-  },
-  backButton: {},
-  ios_settings_outline: {
-    marginTop: 10,
-    backgroundColor: "#41444B",
-    width: 31,
-    height: 31,
-    borderColor: "white",
-    borderWidth: 3,
-    borderRadius: 20,
-    alignItems: "center",
-    justifyContent: "center",
-    shadowColor: "white",
-    shadowOffset: {
-      width: 2,
-      height: 4,
-    },
-    position: "absolute",
-    left: 300,
-    shadowOpacity: 5,
-    shadowRadius: 15,
-    elevation: 7,
-  },
+  // headerIconBar: {
+  //   flexDirection: "row",
+  //   justifyContent: "flex-end",
+  //   marginTop: 10,
+  //   marginHorizontal: 16,
+  // },
+  // ios_settings_outline: {
+  //   marginTop: 10,
+  //   backgroundColor: "#41444B",
+  //   width: 31,
+  //   height: 31,
+  //   borderColor: "white",
+  //   borderWidth: 3,
+  //   borderRadius: 20,
+  //   alignItems: "center",
+  //   justifyContent: "center",
+  //   shadowColor: "white",
+  //   shadowOffset: {
+  //     width: 2,
+  //     height: 4,
+  //   },
+  //   position: "absolute",
+  //   left: 300,
+  //   shadowOpacity: 5,
+  //   shadowRadius: 15,
+  //   elevation: 7,
+  // },
   profileShadow: {
     alignItems: "center",
     shadowColor: "white",
@@ -417,87 +419,87 @@ const styles = StyleSheet.create({
   usernameContainer: {
     alignSelf: "center",
     alignItems: "center",
-    backgroundColor: "#ffbd03",
-    borderColor: "white",
-    borderWidth: 3,
+    // backgroundColor: "#DCDCDC",
+    // borderColor: "white",
+    // borderWidth: 3,
     marginTop: 5,
     marginBottom: 5,
-    borderRadius: 25,
-    shadowColor: "grey",
-    shadowOffset: {
-      width: 0,
-      height: 3,
-    },
-    shadowOpacity: 1,
-    shadowRadius: 10,
+    // borderRadius: 25,
+    // shadowColor: "grey",
+    // shadowOffset: {
+    //   width: 0,
+    //   height: 3,
+    // },
+    // shadowOpacity: 1,
+    // shadowRadius: 10,
 
-    elevation: 10,
+    // elevation: 10,
   },
   username: {
     fontSize: 18,
     fontFamily: "HelveticaNeue",
-    color: "white",
-    fontWeight: "900",
+    color: "black",
+    fontWeight: "600",
     margin: 5,
     padding: 2,
   },
   locationDataBox: {
-paddingVertical: 5,
-  paddingHorizontal: 2,
-  //flexDirection: "row",
-  alignSelf: "center",
-  alignItems: "center",
-  width: 172,
-  backgroundColor: "white",
-    borderColor: "#76c893",
-    borderWidth: 2,
+    paddingVertical: 5,
+    paddingHorizontal: 2,
+    //flexDirection: "row",
+    alignSelf: "center",
+    alignItems: "center",
+    width: 172,
+    // backgroundColor: "white",
+    // borderColor: "#DCDCDC",
+    // borderWidth: 2,
     marginTop: 2,
     marginBottom: 0,
-    borderRadius: 25,
-    shadowColor: "grey",
-    shadowOffset: {
-      width: 0,
-      height: 3,
-    },
-    shadowOpacity: 1,
-    shadowRadius: 10,
+    // borderRadius: 25,
+    // shadowColor: "grey",
+    // shadowOffset: {
+    //   width: 0,
+    //   height: 3,
+    // },
+    // shadowOpacity: 1,
+    // shadowRadius: 10,
 
-    elevation: 5,
+    // elevation: 5,
   },
   locationDataText: {
-fontSize: 16,
+    fontSize: 14,
     fontFamily: "HelveticaNeue",
-    color: "grey",
-    fontWeight: "900",
+    color: "black",
+    fontWeight: "600",
   },
   treeDataBox: {
-  paddingVertical: 5,
-  paddingHorizontal: 2,
-  //flexDirection: "row",
-  alignSelf: "center",
-  alignItems: "center",
-  width: 172,
-  backgroundColor: "#76c893",
-    borderColor: "white",
-    borderWidth: 2,
+    paddingVertical: 5,
+    paddingHorizontal: 2,
+    //flexDirection: "row",
+    alignSelf: "center",
+    alignItems: "center",
+    width: 172,
+    // backgroundColor: "#DCDCDC",
+    // borderColor: "#DCDCDC",
+    // borderWidth: 2,
     marginTop: 4,
     marginBottom: 5,
-    borderRadius: 25,
-    shadowColor: "grey",
-    shadowOffset: {
-      width: 0,
-      height: 3,
-    },
-    shadowOpacity: 1,
-    shadowRadius: 7,
+    // borderRadius: 25,
+    // shadowColor: "grey",
+    // shadowOffset: {
+    //   width: 0,
+    //   height: 3,
+    // },
+    // shadowOpacity: 1,
+    // shadowRadius: 7,
 
-    elevation: 10,
+    // elevation: 10,
   },
   treeDataText: {
-  fontSize: 16,
+    fontSize: 14,
     fontFamily: "HelveticaNeue",
-    color: "white",
-    fontWeight: "900",
+    color: "black",
+    fontWeight: "500",
     margin: 0,
     padding: 0,
   },
@@ -520,33 +522,33 @@ fontSize: 16,
   //   paddingRight: 30,
   // },
   bookCount: {
-    backgroundColor: "white",
+    // backgroundColor: "white",
     position: "absolute",
     marginTop: -33,
     alignSelf: "center",
     width: 170,
     height: 42,
-    borderColor: "#76c893",
-    borderWidth: 2,
+    // borderColor: "#DCDCDC",
+    // borderWidth: 2,
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 25,
     flexDirection: "row",
-    shadowColor: "grey",
-    shadowOffset: {
-      width: 0,
-      height: 3,
-    },
-    shadowOpacity: 1,
-    shadowRadius: 10,
+    // shadowColor: "grey",
+    // shadowOffset: {
+    //   width: 0,
+    //   height: 3,
+    // },
+    // shadowOpacity: 1,
+    // shadowRadius: 10,
 
-    elevation: 10,
+    // elevation: 10,
   },
   bookCountText: {
-fontFamily: "HelveticaNeue",
-fontSize: 16,
+    fontFamily: "HelveticaNeue",
+    fontSize: 14,
     color: "grey",
-    fontWeight: "900",
+    fontWeight: "500",
   },
   bookCoverContainerShadow: {
     shadowColor: "#000",
@@ -561,14 +563,14 @@ fontSize: 16,
   },
   bookCoverContainer: {
     borderRadius: 10,
-    borderColor: "white",
-    borderWidth: 6,
+    // borderColor: "white",
+    // borderWidth: 6,
     overflow: "hidden",
-    width: 175,
-    height: 260,
+    width: "90%",
+    // height: 260,
     marginHorizontal: 5,
     marginTop: 18,
-    marginBottom: 10,
+    // marginBottom: 10,
   },
   coverImage: {
     width: 170,
@@ -577,15 +579,15 @@ fontSize: 16,
     borderRadius: 5,
   },
 
-  removeBookIcon: {
-    marginBottom: 5,
-  },
-  removeBookIconCover: {
-    position: "absolute",
-    alignSelf: "center",
-    zIndex: 100,
-    right: 1,
-  },
+  // removeBookIcon: {
+  //   marginBottom: 5,
+  // },
+  // removeBookIconCover: {
+  //   position: "absolute",
+  //   alignSelf: "center",
+  //   zIndex: 100,
+  //   right: 1,
+  // },
   iconBackground: {
     flex: 1,
     justifyContent: "center",

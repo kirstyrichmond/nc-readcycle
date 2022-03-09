@@ -52,7 +52,7 @@ export default function SingleBookScreen({ route, navigation }) {
 
   return (
     <SafeAreaView style={styles.container}>
-      <LinearGradient
+      {/* <LinearGradient
         // Background Linear Gradient
         colors={["#f7edf2", "#dee2ff", "white"]}
         start={{
@@ -64,7 +64,7 @@ export default function SingleBookScreen({ route, navigation }) {
           y: 1,
         }}
         style={styles.background}
-      />
+      /> */}
       <View style={styles.bookBox}>
         <View style={styles.imageBox}>
           <Image
@@ -121,7 +121,10 @@ export default function SingleBookScreen({ route, navigation }) {
               </Text>
             </View>
             <View style={styles.messageIcon}>
-              <TouchableOpacity style={styles.messageButton} onPress={handleChat}>
+              <TouchableOpacity
+                style={styles.messageButton}
+                onPress={handleChat}
+              >
                 <AntDesign name="message1" size={24} color="black" />
               </TouchableOpacity>
             </View>
@@ -155,14 +158,14 @@ const styles = StyleSheet.create({
   },
   imageBox: {
     // flex: 1,
-    borderColor: "white",
-    borderWidth: 6,
+    // borderColor: "white",
+    // borderWidth: 6,
     borderRadius: 15,
     height: 232,
     alignItems: "center",
     margin: 10,
     paddingBottom: 10,
-    shadowColor: "pink",
+    shadowColor: "#DCDCDC",
     shadowOffset: {
       width: 0,
       height: 5,
@@ -211,8 +214,8 @@ const styles = StyleSheet.create({
     padding: 10,
     width: 160,
     height: 40,
-    backgroundColor: "#ffbd03",
-    shadowColor: "#52575D",
+    backgroundColor: "#DCDCDC",
+    shadowColor: "#DCDCDC",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.5,
     shadowRadius: 1,
@@ -245,7 +248,7 @@ const styles = StyleSheet.create({
   descriptionContainer: {
     // borderColor: "#8d99ae",
     // borderWidth: 0.5,
-    shadowColor: "pink",
+    shadowColor: "#DCDCDC",
     shadowOffset: {
       width: 0,
       height: 5,
@@ -274,12 +277,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     margin: 10,
-    borderColor: "#1323",
     borderWidth: 2,
     borderRadius: 20,
     borderColor: "#8d99ae",
     borderWidth: 2,
-    backgroundColor: "#f7edf2",
+    backgroundColor: "#DCDCDC",
   },
   avatarShadow: {
     shadowColor: "grey",
@@ -321,11 +323,11 @@ const styles = StyleSheet.create({
     height: 26,
     width: 26,
     borderRadius: 10,
-    backgroundColor: "#ffbd03"
+    // backgroundColor: "#ffbd03"
   },
   messageIcon: {
     marginRight: 20,
-    shadowColor: "#ffbd03",
+    shadowColor: "#DCDCDC",
     shadowOffset: {
       width: 0,
       height: 3,

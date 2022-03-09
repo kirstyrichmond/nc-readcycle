@@ -15,7 +15,7 @@ import {
   FlatList,
   Image,
   KeyboardAvoidingView,
-  TouchableOpacity
+  TouchableOpacity,
 } from "react-native";
 
 export default function SingleMessageScreen({ route, navigation }) {
@@ -32,10 +32,24 @@ export default function SingleMessageScreen({ route, navigation }) {
   const Comment = (props) => {
     const { item } = props;
 
+    console.log(currUser, "<< user");
+
     const time = item.postedAt.slice(0, 10) + " " + item.postedAt.slice(11, 16);
     return (
-      <View style={styles.commentBox}>
-        <View style={styles.comment}>
+      <View
+        style={
+          item.username === currUser.username
+            ? styles.ownerCommentBox
+            : styles.userCommentBox
+        }
+      >
+        <View
+          style={
+            item.username === currUser.username
+              ? styles.ownerComment
+              : styles.userComment
+          }
+        >
           <Text styles={styles.commentSnippet}>
             {item.username} {time}
           </Text>
@@ -50,8 +64,7 @@ export default function SingleMessageScreen({ route, navigation }) {
   }
 
   function handleSubmit(event) {
-    if (event.nativeEvent.key == 'Enter') {
-      
+    if (event.nativeEvent.key == "Enter") {
       addMessage(chatID, currUser.username, newMessage).then(() => {
         setMessages((curr) => [
           ...curr,
@@ -63,8 +76,7 @@ export default function SingleMessageScreen({ route, navigation }) {
         ]);
         setNewMessage("");
       });
-      event.target.blur()
-      
+      event.target.blur();
     }
   }
 
@@ -99,7 +111,7 @@ export default function SingleMessageScreen({ route, navigation }) {
   ) : (
     <SafeAreaView style={styles.container}>
       <KeyboardAvoidingView behavior="padding" style={{ flex: 1 }}>
-        <LinearGradient
+        {/* <LinearGradient
           // Background Linear Gradient
           colors={["#f7edf2", "#dee2ff", "white"]}
           start={{
@@ -111,7 +123,7 @@ export default function SingleMessageScreen({ route, navigation }) {
             y: 1,
           }}
           style={styles.background}
-        />
+        /> */}
         <View style={styles.header}>
           <View style={styles.imageBackground}>
             <Image
@@ -120,14 +132,13 @@ export default function SingleMessageScreen({ route, navigation }) {
                 uri: image,
               }}
             />
-            </View >
-            <View style={styles.bookInfoBox}>
+          </View>
+          <View style={styles.bookInfoBox}>
             <Text style={styles.bookInfo}>
-            {title} || {otherUser.username}
-          </Text>
-
-            </View>
-          
+              {/* {title} ||  */}
+              {otherUser.username}
+            </Text>
+          </View>
         </View>
         <View style={inputPressed ? styles.listPressed : styles.list}>
           <FlatList
@@ -137,30 +148,25 @@ export default function SingleMessageScreen({ route, navigation }) {
           />
         </View>
 
-          <View style={styles.bottomContainer}>
-            
-            <TextInput
-              onFocus={() => setInputPressed(true)}
-              onBlur={() => setInputPressed(false)}
+        <View style={styles.bottomContainer}>
+          <TextInput
+            onFocus={() => setInputPressed(true)}
+            onBlur={() => setInputPressed(false)}
             placeholder="New message"
             style={styles.textInput}
             onChangeText={handleChange}
             value={newMessage}
-              multiline={true}
-              onKeyPress={handleSubmit}
-              returnKeyType={"send"}
-              // blurOnSubmit={true}
-                
+            multiline={true}
+            onKeyPress={handleSubmit}
+            returnKeyType={"send"}
+            // blurOnSubmit={true}
           />
 
-            
-          
-            {/* <TouchableOpacity>
+          {/* <TouchableOpacity>
             <Pressable style={styles.submit} onPress={handleSubmit}>
             <Text>Send</Text>
           </Pressable>
 </TouchableOpacity> */}
-          
         </View>
       </KeyboardAvoidingView>
     </SafeAreaView>
@@ -180,8 +186,8 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     top: 0,
-	  height: "120%",
-	width: "100%"
+    height: "120%",
+    width: "100%",
   },
   header: {
     height: 200,
@@ -217,11 +223,11 @@ const styles = StyleSheet.create({
     borderRadius: 100,
   },
   bookInfoBox: {
-marginTop: 15,
+    marginTop: 15,
   },
   bookInfo: {
     fontFamily: "HelveticaNeue",
-		color: "#52575D",
+    color: "#52575D",
     fontWeight: "800",
     fontSize: 16,
     paddingHorizontal: 10,
@@ -237,74 +243,98 @@ marginTop: 15,
     height: "30%",
     marginVertical: 5,
   },
-  commentBox: {
+  userCommentBox: {
     flex: 1,
-    alignSelf: "center",
+    alignSelf: "flex-start",
     marginVertical: 1,
     paddingHorizontal: 10,
     paddingVertical: 3,
-	  shadowColor: "black",
-	width: 300,
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 5,
-    shadowRadius: 4,
-    elevation: 3,
-    
+    // shadowColor: "black",
+    width: "auto",
+    // shadowOffset: {
+    //   width: 0,
+    //   height: 2,
+    // },
+    // shadowOpacity: 5,
+    // shadowRadius: 4,
+    // elevation: 3,
+  },
+  ownerCommentBox: {
+    flex: 1,
+    alignSelf: "flex-end",
+    marginVertical: 1,
+    paddingHorizontal: 10,
+    paddingVertical: 3,
+    // shadowColor: "black",
+    width: "auto",
+    // shadowOffset: {
+    //   width: 0,
+    //   height: 2,
+    // },
+    // shadowOpacity: 5,
+    // shadowRadius: 4,
+    // elevation: 3,
+  },
+  ownerComment: {
+    margin: 0,
+    // width: "50%",
+    backgroundColor: "#357DD0",
+    // borderColor: "white",
+    // borderWidth: 3,
     // borderColor: "red",
     // borderWidth: 2,
+    borderRadius: 10,
+    paddingHorizontal: 10,
+    paddingVertical: 5,
   },
-  comment: {
+  userComment: {
     margin: 0,
-    backgroundColor: "#ffbd03",
-    borderColor: "white",
-    borderWidth: 3,
+    backgroundColor: "#DCDCDC",
+    // width: "50%",
+    // borderColor: "white",
+    // borderWidth: 3,
     // borderColor: "red",
     // borderWidth: 2,
     borderRadius: 10,
     paddingHorizontal: 10,
     paddingVertical: 2,
-	},
-	commentSnippet: {
-		fontFamily: "HelveticaNeue",
-		fontSize: 16,
-	},
-	bottomContainer: {
-	// flex: 1,
+  },
+  commentSnippet: {
+    fontFamily: "HelveticaNeue",
+    fontSize: 16,
+  },
+  bottomContainer: {
+    // flex: 1,
     //height: 100,
     alignItems: "center",
     justifyContent: "flex-end",
     marginBottom: 20,
     // borderColor: "red",
     // borderWidth: 2,
-    paddingBottom: 20
+    paddingBottom: 20,
   },
   textInput: {
-    
     borderWidth: 2,
-    width: 288,
+    width: "100%",
     height: 80,
     marginTop: 5,
     backgroundColor: "white",
-    marginBottom: 30,
     padding: 10,
-    borderRadius: 10,
-    borderColor: "grey",
-    shadowColor: "white",
-    shadowOffset: {
-      width: 0,
-      height: 0,
-    },
-    shadowOpacity: 4,
-    shadowRadius: 17,
+    // borderRadius: 10,
+    borderColor: "#ECECEC",
+    // shadowColor: "white",
+    // shadowOffset: {
+    //   width: 0,
+    //   height: 0,
+    // },
+    // shadowOpacity: 4,
+    // shadowRadius: 17,
 
-    elevation: 10,
+    // elevation: 10,
     // borderColor: "red",
     // borderWidth: 6,
   },
-  
+
   submit: {
     borderRadius: 25,
     borderColor: "#76c893",
@@ -329,5 +359,4 @@ marginTop: 15,
     color: "white",
     padding: 6,
   },
- 
 });

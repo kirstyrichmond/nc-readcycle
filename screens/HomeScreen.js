@@ -68,7 +68,7 @@ export default function HomeScreen({ navigation, route }) {
         <View style={styles.textshadow}>
           <View style={styles.textBox}>
             <Text style={styles.bookText}>{item.title}</Text>
-            <Text style={styles.bookText}>({item.distance} miles away)</Text>
+            <Text style={styles.bookText}>{item.distance} mi</Text>
           </View>
         </View>
       </View>
@@ -127,19 +127,6 @@ export default function HomeScreen({ navigation, route }) {
 
   return (
     <SafeAreaView style={styles.pageContainer}>
-      <LinearGradient
-        // Background Linear Gradient
-        colors={["#f7edf2", "#dee2ff", "white"]}
-        start={{
-          x: 0,
-          y: 0,
-        }}
-        end={{
-          x: 1,
-          y: 1,
-        }}
-        style={styles.background}
-      />
       <View style={styles.pageContainer}>
         <View style={styles.searchbarContainer}>
           <TextInput
@@ -154,17 +141,17 @@ export default function HomeScreen({ navigation, route }) {
             <Text style={styles.sliderHeader}>
               up to {Math.round(distance)} miles
             </Text>
-          </View>
 
-          <Slider
-            style={{ width: 200, height: 40 }}
-            value={distance}
-            onValueChange={(distance) => handleChange(distance)}
-            minimumValue={0}
-            maximumValue={100}
-            minimumTrackTintColor="#FFFFFF"
-            maximumTrackTintColor="#000000"
-          />
+            <Slider
+              style={{ width: 200, height: 40 }}
+              value={distance}
+              onValueChange={(distance) => handleChange(distance)}
+              minimumValue={0}
+              maximumValue={100}
+              minimumTrackTintColor="#D1D1D1"
+              maximumTrackTintColor="#D1D1D1"
+            />
+          </View>
         </View>
         <View style={styles.bookFilter}>
           {/* <Text>112 trees saved</Text> */}
@@ -197,22 +184,24 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     width: "100%",
+    backgroundColor: "#F8F8F8",
   },
   background: {
     position: "absolute",
     left: 0,
     right: 0,
     top: 0,
-    height: "120%",
+    // height: "120%",
   },
   searchbarContainer: {
-    marginTop: 10,
+    width: "100%",
+    marginTop: -20,
   },
   searchbarInput: {
     borderColor: "#1323",
     borderWidth: 2,
-    borderRadius: 20,
-    marginTop: 10,
+    // borderRadius: 20,
+    marginTop: 0,
     padding: 7,
     textAlign: "center",
     backgroundColor: "white",
@@ -227,28 +216,31 @@ const styles = StyleSheet.create({
     elevation: 7,
   },
   sliderHeaderContainer: {
-    backgroundColor: "white",
-    borderRadius: 20,
+    // backgroundColor: "white",
+    // borderRadius: 20,
     marginTop: 5,
-    shadowColor: "white",
-    shadowOffset: {
-      width: 0,
-      height: 3,
-    },
-    shadowOpacity: 5,
-    shadowRadius: 15,
+    alignItems: "center",
+    // shadowColor: "white",
+    // shadowOffset: {
+    //   width: 0,
+    //   height: 3,
+    // },
+    // shadowOpacity: 5,
+    // shadowRadius: 15,
 
-    elevation: 7,
+    // elevation: 7,
   },
   sliderHeader: {
+    width: "40%",
+    justifyContent: "center",
     fontFamily: "HelveticaNeue",
     color: "#41444B",
     fontWeight: "600",
     fontSize: 16,
-    borderColor: "#1323",
-    borderWidth: 2,
-    borderRadius: 20,
-    padding: 7,
+    // borderColor: "#1323",
+    // borderWidth: 2,
+    // borderRadius: 20,
+    padding: 2,
     textAlign: "center",
   },
   sliderMessage: {
@@ -257,10 +249,10 @@ const styles = StyleSheet.create({
     fontWeight: "600",
     fontSize: 16,
     textAlign: "center",
-    padding: 10,
+    padding: 4,
     borderColor: "white",
     borderWidth: 2,
-    borderRadius: 20,
+    // borderRadius: 20,
     margin: 15,
     shadowColor: "white",
     shadowOffset: {
@@ -277,12 +269,12 @@ const styles = StyleSheet.create({
     borderColor: "white",
     borderWidth: 2,
     borderRadius: 20,
-    marginBottom: 10,
+    marginBottom: 2,
     padding: 10,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "#ffbd03",
-    shadowColor: "pink",
+    // alignItems: "center",
+    // justifyContent: "center",
+    backgroundColor: "#DCDCDC",
+    shadowColor: "#DCDCDC",
     shadowOffset: {
       width: 0,
       height: 3,
@@ -294,12 +286,12 @@ const styles = StyleSheet.create({
   },
   list: {
     width: "100%",
-    marginBottom: 170,
+    marginBottom: 0,
   },
   bookBox: {
     flex: 1,
     overflow: "hidden",
-    marginTop: 10,
+    marginTop: 5,
     paddingTop: 0,
     paddingRight: 10,
     alignItems: "center",
@@ -308,21 +300,21 @@ const styles = StyleSheet.create({
     // borderWidth: 0.5,
   },
   imagebox: {
-    backgroundColor: "white",
+    // backgroundColor: "white",
     width: 128,
     height: 198,
-    borderRadius: 10,
-    borderColor: "white",
-    borderWidth: 4,
-    shadowColor: "pink",
-    shadowOffset: {
-      width: 0,
-      height: 5,
-    },
-    shadowOpacity: 1,
-    shadowRadius: 17,
+    // borderRadius: 10,
+    // borderColor: "white",
+    // borderWidth: 4,
+    // shadowColor: "pink",
+    // shadowOffset: {
+    //   width: 0,
+    //   height: 5,
+    // },
+    // shadowOpacity: 1,
+    // shadowRadius: 17,
 
-    elevation: 10,
+    // elevation: 10,
   },
   image: {
     marginTop: 0,
@@ -333,28 +325,28 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   textBox: {
-    backgroundColor: "#edf6f9",
+    // backgroundColor: "#edf6f9",
     marginLeft: 11,
-    marginTop: 10,
-    marginBottom: 10,
-    borderColor: "white",
-    borderWidth: 6,
-    borderRadius: 15,
+    // marginTop: 10,
+    marginBottom: 0,
+    // borderColor: "white",
+    // borderWidth: 6,
+    // borderRadius: 15,
     paddingTop: 0,
     paddingBottom: 0,
     alignItems: "center",
     justifyContent: "center",
     width: 128,
     height: 60,
-    shadowColor: "pink",
-    shadowOffset: {
-      width: 0,
-      height: 3,
-    },
-    shadowOpacity: 0.5,
-    shadowRadius: 4,
+    // shadowColor: "pink",
+    // shadowOffset: {
+    //   width: 0,
+    //   height: 3,
+    // },
+    // shadowOpacity: 0.5,
+    // shadowRadius: 4,
 
-    elevation: 10,
+    // elevation: 10,
   },
   bookText: {
     fontFamily: "HelveticaNeue",

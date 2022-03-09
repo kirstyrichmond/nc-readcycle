@@ -55,7 +55,7 @@ export default function MessagesScreen({ route, navigation }) {
 
       return (
         <SafeAreaView style={styles.container}>
-          <LinearGradient
+          {/* <LinearGradient
             // Background Linear Gradient
             colors={["#f7edf2", "#dee2ff", "white"]}
             start={{
@@ -67,25 +67,12 @@ export default function MessagesScreen({ route, navigation }) {
               y: 1,
             }}
             style={styles.background}
-          />
+          /> */}
           <Pressable
             style={styles.chatThumb}
             onPress={() => handlePress(item.book, chatID)}
           >
             <View style={styles.thumbLeft}>
-              <Text style={styles.chatThumbHeader}>{item.book} </Text>
-              <View style={styles.chatThumbTextBox}>
-                <View style={styles.chatThumbText}>
-                  <Text style={styles.chatID}>
-                    {latestMessage.username} {time}
-                  </Text>
-                  <Text style={styles.chatSnippet}>
-                    {latestMessage.message.slice(0, 35)}...{" "}
-                  </Text>
-                </View>
-              </View>
-            </View>
-            <View style={styles.thumbRight}>
               <View style={styles.imageBackground}>
                 <Image
                   style={styles.pic}
@@ -94,6 +81,30 @@ export default function MessagesScreen({ route, navigation }) {
                   }}
                 />
               </View>
+            </View>
+            <View style={styles.thumbRight}>
+              <View style={styles.thumbHeader}>
+                <Text style={styles.chatID}>
+                  {latestMessage.username}
+                  {/* {time} */}
+                </Text>
+                <Text style={styles.chatTitle}>{item.book} </Text>
+              </View>
+              {/* <View style={styles.chatThumbTextBox}> */}
+              <View style={styles.chatThumbText}>
+                <Text style={styles.chatSnippet}>
+                  {latestMessage.message.slice(0, 35)}...{" "}
+                </Text>
+              </View>
+              {/* </View> */}
+              {/* <View style={styles.imageBackground}>
+                <Image
+                  style={styles.pic}
+                  source={{
+                    uri: item.picture,
+                  }}
+                />
+              </View> */}
             </View>
           </Pressable>
         </SafeAreaView>
@@ -125,7 +136,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    // backgroundColor: "white",
+    backgroundColor: "white",
   },
   background: {
     position: "absolute",
@@ -141,25 +152,37 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   list: {
-    height: "50%",
+    // height: "50%",
+  },
+  thumbHeader: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    width: "100%",
+    // alignSelf: 'flex-start',
   },
   chatThumb: {
     backgroundColor: "white",
+
     padding: 8,
     marginHorizontal: 5,
-    marginVertical: 2,
-    borderRadius: 12,
+    marginVertical: 5,
+    // borderRadius: 12,
     flexDirection: "row",
-    borderColor: "green",
-    borderWidth: 1,
+    borderBottomColor: "#DCDCDC",
+    borderBottomWidth: 2,
+    alignItems: "flex-start",
   },
-  chatThumbHeader: {
+  chatTitle: {
     fontFamily: "HelveticaNeue",
+    width: "75%",
     color: "#52575D",
-    fontWeight: "800",
-    fontSize: 16,
-    paddingHorizontal: 10,
-    paddingVertical: 7,
+    fontWeight: "600",
+    fontSize: 12,
+    paddingHorizontal: 5,
+    paddingVertical: 2,
+    // justifyContent: "flex-end",
+    textAlign: "right",
+
     // borderColor: "red",
     // borderWidth: 1,
   },
@@ -176,8 +199,8 @@ const styles = StyleSheet.create({
     shadowRadius: 6,
 
     elevation: 3,
-    borderColor: "white",
-    borderWidth: 2,
+    // borderColor: "white",
+    // borderWidth: 2,
   },
   pic: {
     height: 75,
@@ -185,40 +208,44 @@ const styles = StyleSheet.create({
     borderRadius: 100,
   },
   thumbLeft: {
-    width: "55%",
+    width: "30%",
   },
   thumbRight: {
-    width: "45%",
-    justifyContent: "center",
-    alignContent: "center",
-    alignItems: "flex-end",
+    width: "70%",
+    height: "80%",
+    justifyContent: "space-between",
+    // alignContent: "center",
+    alignItems: "flex-start",
+    padding: 2,
     // borderColor: "red",
     // borderWidth: 1,
   },
-  chatThumbTextBox: {
-    borderColor: "white",
-    borderWidth: 3,
-    borderRadius: 14,
-    shadowColor: "black",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 5,
-    shadowRadius: 4,
+  // chatThumbTextBox: {
+  //   borderColor: "white",
+  //   borderWidth: 3,
+  //   borderRadius: 14,
+  //   shadowColor: "black",
+  //   shadowOffset: {
+  //     width: 0,
+  //     height: 2,
+  //   },
+  //   shadowOpacity: 5,
+  //   shadowRadius: 4,
 
-    elevation: 3,
-  },
+  //   elevation: 3,
+  // },
   chatThumbText: {
     margin: 0,
-    backgroundColor: "#ffbd03",
+    // backgroundColor: "#DCDCDC",
 
     // borderColor: "red",
     // borderWidth: 2,
-    borderRadius: 10,
-    paddingLeft: 8,
-    paddingTop: 5,
-    paddingBottom: 5,
+    // borderRadius: 10,
+    // paddingLeft: 8,
+    paddingTop: 0,
+    paddingBottom: 0,
+    // alignItems: 'flex-end',
+    // justifyContent: 'flex-start'
   },
   chatSnippet: {
     fontFamily: "HelveticaNeue",
@@ -227,6 +254,7 @@ const styles = StyleSheet.create({
   chatID: {
     fontFamily: "HelveticaNeue",
     color: "black",
-    fontWeight: "700",
+    fontWeight: "500",
+    // justifyContent: 'flex-end'
   },
 });
