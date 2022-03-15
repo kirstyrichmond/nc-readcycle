@@ -18,10 +18,10 @@ Recycle books with Readcycle and let’s tackle climate change together.
 
 ### Tech used:
 
-![image](https://user-images.githubusercontent.com/90627497/158418246-dbe8cfb2-5b30-4ed2-af8c-2c834183d62a.png)
-![image](https://user-images.githubusercontent.com/90627497/158418400-660ae016-3a59-4587-9d38-3bd016778450.png)
-![image](https://user-images.githubusercontent.com/90627497/158418470-be73483d-3cb2-4861-89b8-b8971fb035fe.png)
-![image](https://user-images.githubusercontent.com/90627497/158418537-ff62b951-d611-4f53-adc7-108715843463.png)
+![image](https://img.shields.io/badge/React_Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![image](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
+![image](https://img.shields.io/badge/Expo-1B1F23?style=for-the-badge&logo=expo&logoColor=white)
+![image](https://img.shields.io/badge/firebase-ffca28?style=for-the-badge&logo=firebase&logoColor=black)
 
 ## Set up
 
